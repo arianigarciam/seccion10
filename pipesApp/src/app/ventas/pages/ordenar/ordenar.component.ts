@@ -1,5 +1,6 @@
 import { Component} from '@angular/core';
 import { Color, Heroe } from '../../interfaces/ventas.interfaces';
+import { OrdenarPipe } from '../../pipes/ordenar.pipe';
 
 @Component({
   selector: 'app-ordenar',
@@ -10,6 +11,9 @@ import { Color, Heroe } from '../../interfaces/ventas.interfaces';
 export class OrdenarComponent {
 
   enMayuscula : boolean = true;
+  ordenarPor:string="";
+
+
   heroes: Heroe []= [
     {
       nombre: 'Superman',
@@ -37,7 +41,10 @@ export class OrdenarComponent {
       color: Color.verde
     }
   ]
-
+  cambiarOrden(valor:string){
+    this.ordenarPor= valor;
+  
+  }
  
   toggleMayuscula () {
     this.enMayuscula=!this.enMayuscula;
